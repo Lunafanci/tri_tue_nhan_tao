@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Chia_qua {
-    public static void main(String[] args) throws IOException {
+    public static void mains(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader("data.txt"));
         int N = Integer.parseInt(br.readLine());
         String[] strNums = br.readLine().split(" ");

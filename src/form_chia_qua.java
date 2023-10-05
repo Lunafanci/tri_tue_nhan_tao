@@ -1,8 +1,18 @@
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author PC
@@ -13,7 +23,9 @@ public class form_chia_qua extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     public form_chia_qua() {
+
         initComponents();
+//        btn_chiaqua.setEnabled(false);
     }
 
     /**
@@ -26,94 +38,302 @@ public class form_chia_qua extends javax.swing.JFrame {
     private void initComponents() {
 
         textArea1 = new java.awt.TextArea();
-        btn_chia = new javax.swing.JButton();
+        jDialog1 = new javax.swing.JDialog();
+        jDialog2 = new javax.swing.JDialog();
+        jDialog3 = new javax.swing.JDialog();
         txt_soluong = new javax.swing.JTextField();
-        txt_giatri = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         tom = new javax.swing.JTextField();
         jerry = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        btn_nhap_gia_tri = new javax.swing.JButton();
+        txt_giatri = new javax.swing.JTextField();
+        btn_chiaqua = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        tom_index = new javax.swing.JTextField();
+        jerry_index = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
+        jDialog2.getContentPane().setLayout(jDialog2Layout);
+        jDialog2Layout.setHorizontalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog2Layout.setVerticalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog3Layout = new javax.swing.GroupLayout(jDialog3.getContentPane());
+        jDialog3.getContentPane().setLayout(jDialog3Layout);
+        jDialog3Layout.setHorizontalGroup(
+            jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog3Layout.setVerticalGroup(
+            jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btn_chia.setText("Chia quà");
-        btn_chia.addActionListener(new java.awt.event.ActionListener() {
+        txt_soluong.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_chiaActionPerformed(evt);
+                txt_soluongActionPerformed(evt);
             }
         });
 
         jLabel1.setText("Nhập số lượng");
 
-        jLabel2.setText("Nhập giá trị");
+        jLabel4.setText("Giá trị các món quà của tom");
 
-        jLabel4.setText("Tom");
+        jLabel5.setText("Giá trị các món quà của tom");
 
-        jLabel5.setText("Jerry");
+        btn_nhap_gia_tri.setText("Nhập giá trị quà");
+        btn_nhap_gia_tri.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nhap_gia_triActionPerformed(evt);
+            }
+        });
+
+        txt_giatri.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_giatriActionPerformed(evt);
+            }
+        });
+
+        btn_chiaqua.setText("Chia quà");
+        btn_chiaqua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_chiaquaActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Danh sách giá trị các món quà");
+
+        jLabel6.setText("Vị trí món quà mà tom giữ");
+
+        jLabel7.setText("Vị trí món quà mà jerry giữ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addGap(18, 18, 18)
-                            .addComponent(txt_soluong, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tom, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_chia)
-                            .addComponent(jerry, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jLabel2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
+                                .addGap(22, 22, 22)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4))))
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_giatri, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(174, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(31, 31, 31)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel4)))
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addComponent(btn_nhap_gia_tri)))
+                        .addGap(72, 72, 72)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_chiaqua)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txt_giatri, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_soluong, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tom, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jerry, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel6))
+                        .addGap(72, 72, 72)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tom_index, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jerry_index, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_soluong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_nhap_gia_tri)
+                    .addComponent(btn_chiaqua))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_giatri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(22, 22, 22)
-                .addComponent(btn_chia)
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jerry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel6))
+                    .addComponent(tom_index, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jerry_index, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_chiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_chiaActionPerformed
+    private void txt_soluongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_soluongActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btn_chiaActionPerformed
+    }//GEN-LAST:event_txt_soluongActionPerformed
+    private ArrayList<String> giaTriQua = new ArrayList<>();
+    private void btn_nhap_gia_triActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nhap_gia_triActionPerformed
+        // TODO add your handling code here:
+
+        // Kiểm tra điều kiện nhập số lượng quà
+        try {
+            int soluong = Integer.parseInt(txt_soluong.getText().trim());
+            if (soluong < 0 || soluong > 40) {
+                // Hiển thị thông báo nếu số lượng không hợp lệ
+                JOptionPane.showMessageDialog(this, "Số lượng nhập không hợp lệ", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                return; // Dừng lại nếu số lượng không hợp lệ
+            }
+
+            // Tạo danh sách các giá trị tương ứng với số lượng và hiển thị các dialog để nhập giá trị
+            for (int i = 0; i < soluong; i++) {
+                String gia_tri = JOptionPane.showInputDialog(this, "Nhập giá trị cho quà thứ " + (i + 1));
+                while (gia_tri == null || gia_tri.trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "Giá trị không được trống", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                    gia_tri = JOptionPane.showInputDialog(this, "Nhập giá trị cho quà thứ " + (i + 1));
+                }
+                giaTriQua.add(gia_tri);
+            }
+            ghiDuLieuVaoTep(soluong, giaTriQua);
+            btn_chiaqua.setEnabled(true);
+        } catch (NumberFormatException e) {
+            // Xử lý nếu không thể chuyển đổi số lượng thành số nguyên
+            JOptionPane.showMessageDialog(this, "Số lượng không hợp lệ", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        }
+        String gia_tri = String.join(" ", giaTriQua);
+        txt_giatri.setText(String.join(" ", giaTriQua));
+    }//GEN-LAST:event_btn_nhap_gia_triActionPerformed
+    private void ghiDuLieuVaoTep(int soluong, ArrayList<String> giaTriQua) {
+        String tenTep = "duLieuQua.txt"; // Đặt tên tệp tin
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(tenTep))) {
+            // Ghi số lượng vào tệp tin
+            writer.write(Integer.toString(soluong));
+            writer.newLine(); // Xuống dòng
+
+            // Ghi mảng giá trị quà vào tệp tin
+            for (String gia_tri : giaTriQua) {
+                writer.write(gia_tri);
+                writer.write(" ");
+//                writer.newLine(); // Xuống dòng
+            }
+            // Thông báo ghi thành công
+            JOptionPane.showMessageDialog(this, "Dữ liệu đã được ghi vào tệp " + tenTep, "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+        } catch (IOException e) {
+            // Xử lý nếu có lỗi khi ghi vào tệp tin
+            JOptionPane.showMessageDialog(this, "Lỗi khi ghi dữ liệu vào tệp " + tenTep, "Lỗi", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void txt_giatriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_giatriActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_giatriActionPerformed
+
+    private void btn_chiaquaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_chiaquaActionPerformed
+        // TODO add your handling code here:
+        String tenTep = "duLieuQua.txt"; // Tên tệp tin cần đọc
+        try (BufferedReader reader = new BufferedReader(new FileReader(tenTep))) {
+            BufferedReader br = new BufferedReader(new FileReader(tenTep));
+            int N = Integer.parseInt(br.readLine());
+            String[] strNums = br.readLine().split(" ");
+            int[] X = new int[N];
+            for (int i = 0; i < N; i++) {
+                X[i] = Integer.parseInt(strNums[i]);
+            }
+//            int[] Y = X;
+            int[] Y = Arrays.copyOf(X, X.length);
+
+            Arrays.sort(X);
+            ArrayList<Integer> tom_toys = new ArrayList<>();
+            ArrayList<Integer> jerry_toys = new ArrayList<>();
+            for (int i = N - 1; i >= 0; i--) {
+                if (sum(tom_toys) <= sum(jerry_toys)) {
+                    tom_toys.add(X[i]);
+                } else {
+                    jerry_toys.add(X[i]);
+                }
+            }
+            tom_index.setText(laySoThuTuMonQua(tom_toys, Y)); // Hiển thị số thứ tự của đồ chơi của Tom
+            jerry_index.setText(laySoThuTuMonQua(jerry_toys, Y)); // Hiển thị số thứ tự của đồ chơi của Jerry
+
+             tom.setText(Arrays.toString(tom_toys.toArray()));
+             jerry.setText(Arrays.toString(jerry_toys.toArray()));      
+            System.out.println("Danh sach do choi cua Tom: " + tom_toys);
+            System.out.println("Danh sach do choi cua Jerry: " + jerry_toys);
+            System.out.println("Chenh lech tong gia tri do choi: " + Math.abs(sum(tom_toys) - sum(jerry_toys)));
+
+        } catch (IOException | NumberFormatException e) {
+            // Xử lý nếu có lỗi khi đọc tệp tin hoặc không thể chuyển đổi dữ liệu thành số nguyên
+            JOptionPane.showMessageDialog(this, "Lỗi khi đọc dữ liệu từ tệp " + tenTep, "Lỗi", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btn_chiaquaActionPerformed
+    public static int sum(List<Integer> list) {
+        int sum = 0;
+        for (int num : list) {
+            sum += num;
+        }
+        return sum;
+    }
+
+    private String laySoThuTuMonQua(ArrayList<Integer> danhSachDoChoi, int[] X) {
+        StringBuilder stt = new StringBuilder();
+        for (int i = 0; i < danhSachDoChoi.size(); i++) {
+            int monQua = danhSachDoChoi.get(i);
+            for (int j = 0; j < X.length; j++) {
+                if (monQua == X[j]) {
+                    int soThuTu = j + 1; // Số thứ tự bắt đầu từ 1, cộng thêm 1 vào vị trí
+                    stt.append(soThuTu);
+                    stt.append(", ");
+                    break; // Khi tìm thấy giá trị, thoát khỏi vòng lặp trong mảng X
+                }
+            }
+        }
+        if (stt.length() > 0) {
+            stt.delete(stt.length() - 2, stt.length()); // Loại bỏ dấu ", " ở cuối
+        }
+        return stt.toString();
+    }
 
     /**
      * @param args the command line arguments
@@ -152,14 +372,22 @@ public class form_chia_qua extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_chia;
+    private javax.swing.JButton btn_chiaqua;
+    private javax.swing.JButton btn_nhap_gia_tri;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JDialog jDialog2;
+    private javax.swing.JDialog jDialog3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField jerry;
+    private javax.swing.JTextField jerry_index;
     private java.awt.TextArea textArea1;
     private javax.swing.JTextField tom;
+    private javax.swing.JTextField tom_index;
     private javax.swing.JTextField txt_giatri;
     private javax.swing.JTextField txt_soluong;
     // End of variables declaration//GEN-END:variables
